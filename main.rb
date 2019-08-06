@@ -5,8 +5,6 @@ module Enumerable
         end
     end
     
-    
-    
     def my_each_with_index
         for i in 0...self.length
             yield(self[i],i)
@@ -31,23 +29,23 @@ module Enumerable
     end
     
     def my_any?
-        new_array = []
         self.my_each{|x|
             if yield(x)
-                new_array << x 
+                return true 
+            else
+                return false
             end
             }
-        return new_array
     end
     
     def my_none?
-        new_array = []
         self.my_each{|x|
-            if !yield(x)
-                new_array << x  
-            end   
+            if yield(x)
+                return false
+            else
+                return true
+            end  
             }    
-        return new_array
     end
 
     def my_count
@@ -70,9 +68,9 @@ module Enumerable
         return new_arry
     end
 
-    def my_inject(accum)
+    def my_inject(accum,&block)
         self.my_each{|x|
-            accum = yield(accum,x)
+            accum = block.call(accum,x)
             }
         return accum
     end
