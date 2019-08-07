@@ -48,17 +48,26 @@ module Enumerable
             }    
     end
 
-    def my_count
-        counter = 0
-        self.my_each do |x|
-            if !block_given?
-                return self.length
-            elsif yield(x) 
-                counter += 1
-            end
-        end
-        return counter
-    end
+  def my_count(args=nil)
+      if args
+          count = 0
+          self.each{|x|
+              if x == args
+                  count += 1
+              end
+              }
+          return count
+      end
+      counter = 0
+      self.my_each do |x|
+          if !block_given?
+              return self.length
+          elsif yield(x) 
+              counter += 1
+          end
+      end
+      return counter
+  end
 
     def my_map(&block)
         new_arry = []
