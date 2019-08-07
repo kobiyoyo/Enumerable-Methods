@@ -68,9 +68,10 @@ module Enumerable
         return new_arry
     end
 
-    def my_inject(accum,&block)
+    def my_inject
+        accum = 0
         self.my_each{|x|
-            accum = block.call(accum,x)
+            accum = yield(accum,x)
             }
         return accum
     end
