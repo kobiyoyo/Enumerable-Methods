@@ -68,12 +68,18 @@ module Enumerable
         return new_arry
     end
 
-    def my_inject
-        accum = 0
-        self.my_each{|x|
-            accum = yield(accum,x)
-            }
-        return accum
-    end
+  def my_inject(args=nil)
+      if(args)
+          accum = args
+      else
+          accum = self[0]
+      end
+      self.each{|x|
+          next if accum == x 
+          accum = yield(accum,x)
+          }
+      return accum
+  
+  end
  
 end
