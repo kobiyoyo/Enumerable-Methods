@@ -43,7 +43,7 @@ $ cd Enumerable-Methods
 
 ## Contributing
 
-1. Fork it (https://github.com/kobiyoyo/Enumerable-Methods.git)
+1. Fork it (https://github.com/kobiyoyo/Enumerable-Methods/fork)
 2. Create your feature (dev) branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -m 'What this commit will fix/add')
 4. Push to the branch (git push origin feature/[chosen name])
